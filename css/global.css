@@ -159,3 +159,7 @@ body {
 .sos-btn:hover {
   background-color: #daa520;
 }
+
+.menu-box {
+  cursor: pointer;
+}

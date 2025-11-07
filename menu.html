@@ -1,54 +1,67 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Menu - Equilibrio Laboral</title>
-<link rel="stylesheet" href="css/global.css">
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Menu - Equilibrio Laboral</title>
+    <link rel="stylesheet" href="css/global.css" />
+  </head>
 
-<body>
+  <body>
+    <div class="menu-container">
+      <!-- Icons Header -->
+      <div class="menu-header">
+        <img src="icons/back.png" class="icon-small" alt="Volver" id="btn-back"/>
+        <img src="icons/settings.png" class="icon-small-setting" alt="Config" />
+      </div>
 
-<div class="menu-container">
+      <!-- Logo -->
+      <div class="menu-logo">
+        <img src="icons/logo.png" alt="Logo" />
+      </div>
 
-    <!-- Icons Header -->
-    <div class="menu-header">
-        <img src="icons/back.png" class="icon-small" alt="Volver">
-        <img src="icons/settings.png" class="icon-small-setting" alt="Config">
+      <!-- Grid Opciones -->
+      <div class="menu-grid">
+        <div class="menu-box">
+          <span>MEDITACIÓN</span>
+          <img src="icons/lotus.png" class="icon" alt="" />
+        </div>
+
+        <div class="menu-box">
+          <span>CONSEJOS</span>
+          <img src="icons/bulb.png" class="icon" alt="" />
+        </div>
+
+        <div class="menu-box">
+          <span>TERAPIA</span>
+          <img src="icons/terapia.png" class="icon" alt="" />
+        </div>
+
+        <a href="report_anonimo.html" class="menu-box" style="text-decoration: none">
+          <span>REPORTE<br />ANÓNIMO</span>
+          <img src="icons/chat.png" class="icon" alt="" />
+        </a>
+      </div>
+
+      <button class="sos-btn">S.O.S</button>
     </div>
-
-    <!-- Logo -->
-    <div class="menu-logo">
-        <img src="icons/logo.png" alt="Logo">
-    </div>
-
-    <!-- Grid Opciones -->
-    <div class="menu-grid">
-        <div class="menu-box">
-            <span>MEDITACIÓN</span>
-            <img src="icons/lotus.png" class="icon" alt="">
-        </div>
-
-        <div class="menu-box">
-            <span>CONSEJOS</span>
-            <img src="icons/bulb.png" class="icon" alt="">
-        </div>
-
-        <div class="menu-box">
-            <span>TERAPIA</span>
-            <img src="icons/terapia.png" class="icon" alt="">
-        </div>
-
-        <div class="menu-box">
-            <span>REPORTE<br>ANÓNIMO</span>
-            <img src="icons/chat.png" class="icon" alt="">
-        </div>
-    </div>
-
-    <!-- SOS Button -->
-    <button class="sos-btn">S.O.S</button>
-
-</div>
-
-</body>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const reporteBox = document.querySelector(".menu-box:nth-child(4)");
+        if (reporteBox) {
+          reporteBox.addEventListener("click", function () {
+            window.location.href = "report_anonimo.html";
+          });
+        }
+      });
+        document.addEventListener("DOMContentLoaded", function() {
+    const backButton = document.getElementById("btn-back");
+    if (backButton) {
+      backButton.addEventListener("click", function() {
+        window.history.back(); // Vuelve a la página anterior
+      });
+    }
+  });
+    </script>
+  </body>
 </html>

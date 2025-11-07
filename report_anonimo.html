@@ -1,51 +1,92 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Reporte anónimo</title>
-  <link rel="stylesheet" href="css/global.css">
-</head>
-<body>
-  <div class="container">
-    
-    <!-- Encabezado con íconos -->
-    <div class="menu-header">
-      <img src="icons/back.png" alt="Regresar" class="icon-small">
-      <img src="icons/settings.png" alt="Configuración" class="icon-small-setting">
-    </div>
-
-    <!-- Icono principal y título -->
-    <div class="menu-logo">
-      <img src="icons/chat.png" alt="Reporte anónimo">
-      <div class="title">Reporte anónimo</div>
-    </div>
-
-    <!-- Formulario -->
-    <form>
-      <div class="input-group">
-        <label for="tema" style="color:#d4af37; display:block; text-align:left; margin-top:10px;">TEMA</label>
-        <input type="text" id="tema" name="tema" placeholder="">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reporte anónimo</title>
+    <link rel="stylesheet" href="css/global.css" />
+  </head>
+  <body>
+    <div class="container">
+      <!-- Encabezado con íconos -->
+      <div class="menu-header">
+        <img
+          src="icons/back.png"
+          alt="Regresar"
+          class="icon-small"
+          id="btn-back"
+        />
+        <img
+          src="icons/settings.png"
+          alt="Configuración"
+          class="icon-small-setting"
+        />
       </div>
 
-      <div class="input-group">
-        <label for="descripcion" style="color:#d4af37; display:block; text-align:left; margin-top:20px;">DESCRIPCIÓN</label>
-        <textarea id="descripcion" name="descripcion" rows="6" style="
-          width:100%;
-          padding:12px;
-          margin-top:10px;
-          background-color:#333;
-          border:2px solid #d4af37;
-          border-radius:10px;
-          color:#fff;
-          resize:none;
-          font-size:15px;
-        "></textarea>
+      <!-- Icono principal y título -->
+      <div class="menu-logo">
+        <img src="icons/chat.png" alt="Reporte anónimo" />
+        <div class="title">Reporte anónimo</div>
       </div>
 
-      <button type="submit" class="btn">ENVIAR</button>
-    </form>
+      <!-- Formulario -->
+      <form>
+        <div class="input-group">
+          <label
+            for="tema"
+            style="
+              color: #d4af37;
+              display: block;
+              text-align: left;
+              margin-top: 10px;
+            "
+            >TEMA</label
+          >
+          <input type="text" id="tema" name="tema" placeholder="" />
+        </div>
 
-  </div>
-</body>
+        <div class="input-group">
+          <label
+            for="descripcion"
+            style="
+              color: #d4af37;
+              display: block;
+              text-align: left;
+              margin-top: 20px;
+            "
+            >DESCRIPCIÓN</label
+          >
+          <textarea
+            id="descripcion"
+            name="descripcion"
+            rows="6"
+            style="
+              width: 100%;
+              padding: 12px;
+              margin-top: 10px;
+              background-color: #333;
+              border: 2px solid #d4af37;
+              border-radius: 10px;
+              color: #fff;
+              resize: none;
+              font-size: 15px;
+            "
+          ></textarea>
+        </div>
+
+        <button type="submit" class="btn">ENVIAR</button>
+      </form>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const backButton = document.getElementById("btn-back");
+        if (backButton) {
+          backButton.addEventListener("click", function () {
+            window.history.back(); // Vuelve a la página anterior
+          });
+        }
+      });
+    </script>
+  </body>
 </html>
