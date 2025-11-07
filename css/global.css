@@ -217,7 +217,6 @@ textarea::placeholder {
 /* ------------------------------------------- ALERT -------------------------------------------*/
 .toast-container {
   position: fixed;
-  /* padding-top: 4rem; */
   top: 5%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -228,7 +227,6 @@ textarea::placeholder {
   z-index: 9999;
 }
 
-/* Estilo de la alerta */
 .toast {
   background: rgba(0, 255, 8, 0.322) !important; 
   color: white;
@@ -239,10 +237,9 @@ textarea::placeholder {
   opacity: 0;
   animation: fadeInOut 3s forwards;
   text-align: center;
-  white-space: nowrap; /* Evita saltos de línea */
+  white-space: nowrap;
 }
 
-/* Animación (aparece y desaparece) */
 @keyframes fadeInOut {
   0% {
     opacity: 0;

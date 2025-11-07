@@ -30,7 +30,7 @@
       </div>
 
       <!-- Formulario -->
-      <form action="menu.html">
+      <form action="menu.html" id="formAnonimo">
         <div class="input-group">
           <label
             for="tema"
@@ -75,6 +75,7 @@
         </div>
 
         <button type="submit" class="btn">ENVIAR</button>
+        <div class="toast-container" id="toastContainer"></div>
       </form>
     </div>
 
@@ -86,6 +87,29 @@
             window.history.back(); // Vuelve a la página anterior
           });
         }
+      });
+            function mostrarToast(texto) {
+        const container = document.getElementById("toastContainer");
+        const toast = document.createElement("div");
+        toast.className = "toast";
+        toast.textContent = texto;
+        container.appendChild(toast);
+        // Eliminar después de 3 segundos
+        setTimeout(() => {
+          toast.remove();
+        }, 3000);
+      }
+
+      // --- Manejo del formulario ---
+      const form = document.getElementById("formAnonimo");
+      form.addEventListener("submit", function (event) {
+        event.preventDefault(); // Evita el envío inmediato
+        mostrarToast("Mensaje enviado correctamente!");
+
+        // Espera 3 segundos (duración del toast) y luego redirige
+        setTimeout(() => {
+          window.location.href = "menu.html";
+        }, 3000);
       });
     </script>
   </body>
