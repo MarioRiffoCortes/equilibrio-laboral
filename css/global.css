@@ -179,6 +179,34 @@ body {
   transition: 0.2s;
 }
 
+.input-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.input-row label {
+  flex: 0 0 30%;
+  color: #d4af37;
+  font-size: 18px;
+  text-align: left;
+}
+
+.input-row input[type="date"],
+.input-row select {
+  flex: 1;
+  padding: 10px;
+  background-color: #333;
+  border: 2px solid #d4af37;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 15px;
+  text-align: center;
+}
+
+
 .emociones-grid {
   display: flex;
   flex-wrap: wrap;
@@ -204,7 +232,7 @@ body {
 }
 
 textarea {
-  width: 90%;
+  width: 100%;
   background-color: #333;
   border: 2px solid #d4af37;
   border-radius: 10px;

@@ -29,20 +29,24 @@
 
       <div class="question">RESERVA UNA HORA</div>
 
-      <div class="question">DÍA</div>
-      <input type="date" id="dia" min="<?= date('Y-m-d') ?>" />
+      <div class="input-row">
+        <label for="dia" class="question">DÍA</label>
+        <input type="date" id="dia" min="<?= date('Y-m-d') ?>" />
+      </div>
 
-      <div class="question">HORA</div>
-      <select id="hora">
-        <option value="" disabled selected>Seleccionar hora</option>
-        <option value="09:00">09:00</option>
-        <option value="10:00">10:00</option>
-        <option value="11:00">11:00</option>
-        <option value="15:00">15:00</option>
-        <option value="16:00">16:00</option>
-        <option value="16:00">17:00</option>
-        <option value="16:00">18:00</option>
-      </select>
+      <div class="input-row">
+        <label for="hora" class="question">HORA</label>
+        <select id="hora">
+          <option value="" disabled selected>Seleccionar hora</option>
+          <option value="09:00">09:00</option>
+          <option value="10:00">10:00</option>
+          <option value="11:00">11:00</option>
+          <option value="15:00">15:00</option>
+          <option value="16:00">16:00</option>
+          <option value="17:00">17:00</option>
+          <option value="18:00">18:00</option>
+        </select>
+      </div>
 
       <div class="question">RESUMEN DE LA SITUACIÓN</div>
       <textarea
