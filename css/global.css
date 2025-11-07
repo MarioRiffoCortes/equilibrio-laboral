@@ -217,7 +217,8 @@ textarea::placeholder {
 /* ------------------------------------------- ALERT -------------------------------------------*/
 .toast-container {
   position: fixed;
-  top: 50%;
+  /* padding-top: 4rem; */
+  top: 95%;
   left: 50%;
   transform: translate(-50%, -50%);
   display: flex;
@@ -225,7 +226,6 @@ textarea::placeholder {
   align-items: center;
   gap: 10px;
   z-index: 9999;
-  padding-top: 4rem;
 }
 
 /* Estilo de la alerta */
