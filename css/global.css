@@ -1,0 +1,143 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #000;
+  font-family: "Arial", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  width: 95%;
+  max-width: 380px;
+  background-color: #000;
+  padding: 25px;
+  border-radius: 40px;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.1);
+}
+
+.logo img {
+  width: 160px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.title {
+  color: #d4af37;
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.input-group input {
+  width: 93%;
+  padding: 12px;
+  margin-top: 14px;
+  background-color: #333;
+  border: 2px solid #d4af37;
+  border-radius: 10px;
+  color: #fff;
+  text-align: center;
+  font-size: 15px;
+}
+
+.input-group input::placeholder {
+  color: #ccc;
+  text-align: center;
+}
+
+.btn {
+  width: 100%;
+  padding: 14px;
+  background-color: #b8860b;
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 30px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #daa520;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #000;
+    font-family: Arial, sans-serif;
+}
+
+.menu-container {
+    width: 95%;
+    max-width: 380px;
+    margin: auto;
+    text-align: center;
+    padding: 20px;
+}
+
+.menu-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.icon-small {
+    width: 28px;
+}
+
+.menu-logo img {
+    width: 160px;
+    margin: 20px 0;
+}
+
+/* GRID 2x2 */
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+    margin: 20px 0;
+}
+
+/* Cuadros */
+.menu-box {
+    background-color: #444;
+    border: 2px solid #D4AF37;
+    border-radius: 20px;
+    padding: 15px;
+    color: #D4AF37;
+    font-size: 14px;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu-box .icon {
+    width: 55px;
+    margin-top: 10px;
+}
+
+/* Botón SOS */
+.sos-btn {
+    width: 70%;
+    margin-top: 30px;
+    padding: 14px;
+    background-color: #B8860B;
+    border: none;
+    border-radius: 12px;
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.sos-btn:hover {
+    background-color: #DAA520;
+}
