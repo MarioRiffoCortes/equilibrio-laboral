@@ -1,138 +1,113 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Meditación</title>
-  <link rel="stylesheet" href="css/global.css">
-  <style>
-    .top-bar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Meditación</title>
+    <link rel="stylesheet" href="css/global.css" />
 
-    .icon-small {
-      width: 25px;
-      height: 25px;
-      cursor: pointer;
-    }
-
-    .icon-settings {
-      width: 30px;
-      cursor: pointer;
-    }
-
-    .logo {
-      text-align: center;
-      margin-top: 10px;
-    }
-
-    .logo img {
-      width: 100px;
-    }
-
-    .title {
-      color: #d4af37;
-      font-size: 26px;
-      font-weight: bold;
-      margin-top: 5px;
-      margin-bottom: 15px;
-    }
-
-    select {
-      width: 90%;
-      background-color: #333;
-      border: 2px solid #d4af37;
-      border-radius: 10px;
-      color: #fff;
-      padding: 10px;
-      font-size: 15px;
-      text-align: center;
-      appearance: none;
-      -webkit-appearance: none;
-      background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='10'%3E%3Cpolygon fill='%23d4af37' points='7,10 0,0 14,0'/%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: right 10px center;
-      background-size: 12px;
-      margin-top: 5px;
-      cursor: pointer;
-    }
-
-    select:focus {
-      outline: none;
-      border-color: #daa520;
-    }
-
-    .selector-btn {
-      background-color: #000;
-      border: 2px solid #d4af37;
-      color: #d4af37;
-      border-radius: 10px;
-      padding: 10px 20px;
-      margin: 5px;
-      font-size: 16px;
-      cursor: pointer;
-      transition: 0.2s;
-    }
-
-    .selector-btn:hover {
-      background-color: #222;
-    }
-
-    .selector-btn.selected {
-      background-color: #d4af37;
-      color: #000;
-    }
-  </style>
-</head>
+  </head>
 <body>
-  <div class="container">
-    <div class="top-bar">
-      <img src="icons/back.png" alt="Volver" class="icon-small">
-      <img src="icons/settings.png" alt="Configuración" class="icon-settings">
+    <div class="container">
+      <div class="menu-header">
+        <img
+          src="icons/back.png"
+          alt="Regresar"
+          class="icon-small"
+          id="btn-back"
+        />
+        <img
+          src="icons/settings.png"
+          alt="Configuración"
+          class="icon-small-setting"
+        />
+      </div>
+
+      <div class="menu-logo">
+        <img src="icons/lotus.png" alt="Meditación" />
+      </div>
+      <div class="title">Meditación</div>
+
+      <div class="question">DURACIÓN</div>
+      <div id="duracion-group">
+        <button class="selector-btn duracion-btn" data-minutos="1">1 MIN.</button>
+        <button class="selector-btn duracion-btn" data-minutos="5">5 MINS.</button>
+        <button class="selector-btn duracion-btn" data-minutos="10">10 MINS.</button>
+        <button class="selector-btn duracion-btn" data-minutos="20">20 MINS.</button>
+      </div>
+
+      <div class="question">MÚSICA</div>
+      <select id="musica">
+        <option value="" disabled selected>Seleccionar música</option>
+        <option value="relajante">Relajante</option>
+        <option value="naturaleza">Sonidos de la naturaleza</option>
+        <option value="instrumental">Instrumental suave</option>
+      </select>
+
+      <div class="question">MOTIVO</div>
+      <select id="motivo">
+        <option value="" disabled selected>Seleccionar motivo</option>
+        <option value="estrés">Reducir estrés</option>
+        <option value="concentracion">Mejorar concentración</option>
+        <option value="descanso">Descansar</option>
+      </select>
+
+      <button class="btn" id="inicioBtn">INICIO</button>
+      <div class="toast-container" id="toastContainer"></div>
     </div>
 
-    <div class="logo">
-      <img src="icons/lotus.png" alt="Meditación">
-    </div>
-    <div class="title">Meditación</div>
-
-    <div class="question">DURACIÓN</div>
-    <div id="duracion-group">
-      <button class="selector-btn duracion-btn">5 MINS.</button>
-      <button class="selector-btn duracion-btn">10 MINS.</button>
-      <button class="selector-btn duracion-btn">20 MINS.</button>
-    </div>
-
-    <div class="question">MÚSICA</div>
-    <select id="musica">
-      <option value="" disabled selected>Seleccionar música</option>
-      <option value="relajante">Relajante</option>
-      <option value="naturaleza">Sonidos de la naturaleza</option>
-      <option value="instrumental">Instrumental suave</option>
-    </select>
-
-    <div class="question">MOTIVO</div>
-    <select id="motivo">
-      <option value="" disabled selected>Seleccionar motivo</option>
-      <option value="estrés">Reducir estrés</option>
-      <option value="concentracion">Mejorar concentración</option>
-      <option value="descanso">Descansar</option>
-    </select>
-
-    <button class="btn">INICIO</button>
-  </div>
-
-  <script>
-    // --- Lógica para DURACIÓN (solo un botón activo) ---
-    const duracionBtns = document.querySelectorAll('.duracion-btn');
-    duracionBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        duracionBtns.forEach(b => b.classList.remove('selected'));
-        btn.classList.add('selected');
+    <script>
+document.addEventListener("DOMContentLoaded", function () {
+        const backButton = document.getElementById("btn-back");
+        if (backButton) {
+          backButton.addEventListener("click", function () {
+            window.history.back(); // Vuelve a la página anterior
+          });
+        }
       });
-    });
-  </script>
-</body>
+
+
+      let duracionSeleccionada = null;
+
+      // Manejo de selección de duración
+      document.querySelectorAll(".duracion-btn").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          document
+            .querySelectorAll(".duracion-btn")
+            .forEach((b) => b.classList.remove("selected"));
+          btn.classList.add("selected");
+          duracionSeleccionada = parseInt(btn.getAttribute("data-minutos"));
+        });
+      });
+
+      // Evento del botón INICIO
+      document.getElementById("inicioBtn").addEventListener("click", () => {
+        if (!duracionSeleccionada) {
+          mostrarToast("Por favor selecciona una duración antes de iniciar.", 3000);
+          return;
+        }
+
+        const tiempoMs = duracionSeleccionada * 60 * 1000;
+        mostrarToast(`🧘‍♀️ Meditación iniciada por ${duracionSeleccionada} minutos.`, tiempoMs);
+      });
+
+      // Función para mostrar el toast durante X milisegundos
+      function mostrarToast(texto, duracionMs) {
+        const container = document.getElementById("toastContainer");
+        container.innerHTML = ""; // limpia mensajes previos
+        const toast = document.createElement("div");
+
+        toast.className = "toast";
+        toast.textContent = texto;
+        toast.style.animation = `fadeInOut ${duracionMs / 1000}s forwards`;
+
+        container.appendChild(toast);
+
+        // Eliminar el toast después del tiempo especificado
+        setTimeout(() => {
+          toast.remove();
+        }, duracionMs);
+      }
+    </script>
+  </body>
 </html>

@@ -228,7 +228,7 @@ textarea::placeholder {
 }
 
 .toast {
-  background: rgba(0, 255, 8, 0.322) !important; 
+  background: rgba(0, 255, 8, 0.322) !important;
   color: white;
   padding: 12px 20px;
   border-radius: 8px;
@@ -258,3 +258,60 @@ textarea::placeholder {
     transform: translateY(-10px);
   }
 }
+
+/* ------------------------------------------- Meditacion -------------------------------------------*/
+
+select {
+  width: 90%;
+  background-color: #333;
+  border: 2px solid #d4af37;
+  border-radius: 10px;
+  color: #fff;
+  padding: 10px;
+  font-size: 15px;
+  text-align: center;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='10'%3E%3Cpolygon fill='%23d4af37' points='7,10 0,0 14,0'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 12px;
+  margin-top: 5px;
+  cursor: pointer;
+}
+
+select:focus {
+  outline: none;
+  border-color: #daa520;
+}
+
+/* ------------------------------------------- Terapia -------------------------------------------*/
+input[type="date"],
+      select {
+        width: 90%;
+        background-color: #333;
+        border: 2px solid #d4af37;
+        border-radius: 10px;
+        color: #fff;
+        padding: 10px;
+        font-size: 15px;
+        text-align: center;
+        appearance: none;
+        -webkit-appearance: none;
+        background-repeat: no-repeat;
+        background-position: right 10px center;
+        background-size: 12px;
+        margin-top: 5px;
+        cursor: pointer;
+      }
+
+      input[type="date"]::-webkit-calendar-picker-indicator {
+        filter: invert(1) sepia(1) saturate(5) hue-rotate(10deg);
+        cursor: pointer;
+      }
+
+      input[type="date"]:focus,
+      select:focus {
+        outline: none;
+        border-color: #daa520;
+      }
