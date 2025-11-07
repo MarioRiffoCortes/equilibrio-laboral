@@ -10,7 +10,7 @@ body {
 }
 
 .container {
-  width: 95%;
+  /* width: 95%; */
   max-width: 380px;
   background-color: #000;
   padding: 25px;
