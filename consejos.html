@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Consejos</title>
+    <link rel="stylesheet" href="css/global.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="menu-header">
+        <img
+          src="icons/back.png"
+          alt="Regresar"
+          class="icon-small"
+          id="btn-back"
+        />
+        <img
+          src="icons/settings.png"
+          alt="Configuración"
+          class="icon-small-setting"
+        />
+      </div>
+
+      <div class="menu-logo-consejo">
+        <img src="icons/bulb.png" alt="Consejos" />
+        <div class="title">Consejos</div>
+      </div>
+
+      <form id="formConsejos">
+        <div class="question">¿ESTÁS BIEN?</div>
+        <div id="estado-group">
+          <button type="button" class="selector-btn estado-btn">SI</button>
+          <button type="button" class="selector-btn estado-btn">REGULAR</button>
+          <button type="button" class="selector-btn estado-btn">NO</button>
+        </div>
+
+        <div class="question">¿QUÉ SIENTES?</div>
+        <div id="emociones-group">
+          <button type="button" class="selector-btn emocion-btn">ANSIEDAD</button>
+          <button type="button" class="selector-btn emocion-btn">TEMOR</button>
+          <button type="button" class="selector-btn emocion-btn">PREOCUPACIÓN</button>
+          <button type="button" class="selector-btn emocion-btn">TRISTEZA</button>
+        </div>
+
+        <div class="question">¿TE GUSTARÍA NOTIFICAR ALGO?</div>
+        <textarea rows="3" placeholder="Escribe aquí..."></textarea>
+
+        <button type="submit" class="btn">CONSEJOS</button>
+        <div class="toast-container" id="toastContainer"></div>
+      </form>
+    </div>
+
+    <script>
+      // --- Lógica para "¿ESTÁS BIEN?" (solo uno activo) ---
+      const estadoBtns = document.querySelectorAll(".estado-btn");
+      estadoBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          estadoBtns.forEach((b) => b.classList.remove("selected"));
+          btn.classList.add("selected");
+        });
+      });
+
+      // --- Lógica para "¿QUÉ SIENTES?" (múltiples activos) ---
+      const emocionBtns = document.querySelectorAll(".emocion-btn");
+      emocionBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          btn.classList.toggle("selected");
+        });
+      });
+
+      // --- Botón de volver ---
+      document.addEventListener("DOMContentLoaded", function () {
+        const backButton = document.getElementById("btn-back");
+        if (backButton) {
+          backButton.addEventListener("click", function () {
+            window.history.back();
+          });
+        }
+      });
+
+      // --- Mostrar toast ---
+      function mostrarToast(texto) {
+        const container = document.getElementById("toastContainer");
+        const toast = document.createElement("div");
+        toast.className = "toast";
+        toast.textContent = texto;
+        container.appendChild(toast);
+        // Eliminar después de 3 segundos
+        setTimeout(() => {
+          toast.remove();
+        }, 3000);
+      }
+
+      // --- Manejo del formulario ---
+      const form = document.getElementById("formConsejos");
+      form.addEventListener("submit", function (event) {
+        event.preventDefault(); // Evita el envío inmediato
+        mostrarToast("Mensaje enviado correctamente!");
+
+        // Espera 3 segundos (duración del toast) y luego redirige
+        setTimeout(() => {
+          window.location.href = "menu.html";
+        }, 3000);
+      });
+    </script>
+  </body>
+</html>

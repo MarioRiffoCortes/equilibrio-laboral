@@ -11,7 +11,12 @@
     <div class="menu-container">
       <!-- Icons Header -->
       <div class="menu-header">
-        <img src="icons/back.png" class="icon-small" alt="Volver" id="btn-back"/>
+        <img
+          src="icons/back.png"
+          class="icon-small"
+          alt="Volver"
+          id="btn-back"
+        />
         <img src="icons/settings.png" class="icon-small-setting" alt="Config" />
       </div>
 
@@ -27,17 +32,21 @@
           <img src="icons/lotus.png" class="icon" alt="" />
         </div>
 
-        <div class="menu-box">
-          <span>CONSEJOS</span>
+        <a href="consejos.html" class="menu-box" style="text-decoration: none">
+          <span>CONSEJOS<br /></span>
           <img src="icons/bulb.png" class="icon" alt="" />
-        </div>
+        </a>
 
         <div class="menu-box">
           <span>TERAPIA</span>
           <img src="icons/terapia.png" class="icon" alt="" />
         </div>
 
-        <a href="report_anonimo.html" class="menu-box" style="text-decoration: none">
+        <a
+          href="report_anonimo.html"
+          class="menu-box"
+          style="text-decoration: none"
+        >
           <span>REPORTE<br />ANÓNIMO</span>
           <img src="icons/chat.png" class="icon" alt="" />
         </a>
@@ -47,21 +56,33 @@
     </div>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
-        const reporteBox = document.querySelector(".menu-box:nth-child(4)");
-        if (reporteBox) {
-          reporteBox.addEventListener("click", function () {
-            window.location.href = "report_anonimo.html";
+        const menuBoxes = document.querySelectorAll(".menu-box");
+
+        const links = [
+          "meditacion.html", 
+          "consejos.html",
+          "consejos.html",
+          "terapia.html", 
+          "report_anonimo.html", 
+        ];
+
+        menuBoxes.forEach((box, index) => {
+          if (box.tagName.toLowerCase() !== "a" && links[index]) {
+            box.addEventListener("click", function () {
+              window.location.href = links[index];
+            });
+          }
+        });
+      });
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const backButton = document.getElementById("btn-back");
+        if (backButton) {
+          backButton.addEventListener("click", function () {
+            window.history.back();
           });
         }
       });
-        document.addEventListener("DOMContentLoaded", function() {
-    const backButton = document.getElementById("btn-back");
-    if (backButton) {
-      backButton.addEventListener("click", function() {
-        window.history.back(); // Vuelve a la página anterior
-      });
-    }
-  });
     </script>
   </body>
 </html>
